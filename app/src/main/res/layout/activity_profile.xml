@@ -159,12 +159,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:hint="Họ và tên">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#fff"
                     android:drawableLeft="@drawable/person_icon"
                     android:drawablePadding="10dp"
                     android:text="Võ Phong Nhã" />
@@ -175,12 +175,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:hint="Email">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#fff"
                     android:drawableLeft="@drawable/mail_icon"
                     android:drawablePadding="10dp"
                     android:text="nhavophong@gmail.com" />
@@ -191,12 +191,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
                 android:hint="Số điện thoại">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#fff"
                     android:drawableLeft="@drawable/phone_icon"
                     android:drawablePadding="10dp"
                     android:text="0911649649" />
@@ -207,12 +208,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:passwordToggleEnabled="true"
                 android:hint="Mật khẩu">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#fff"
                     android:drawableLeft="@drawable/password_icon"
                     android:drawablePadding="10dp"
                     android:inputType="textPassword"

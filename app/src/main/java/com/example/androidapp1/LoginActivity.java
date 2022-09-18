@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         slgText = findViewById(R.id.logoSlogan);
         username = findViewById(R.id.username_edt);
         password = findViewById(R.id.password_edt);
+
         login_btn = findViewById(R.id.login_btn);
 
         callSignUp.setOnClickListener(new View.OnClickListener() {
