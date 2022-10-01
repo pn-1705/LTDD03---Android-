@@ -229,6 +229,15 @@
                 android:fontFamily="@font/bungee"
                 android:includeFontPadding="false"
                 android:text="Cập nhật" />
+
+            <Button
+                android:id="@+id/view_ListViewUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_padding"
+                android:fontFamily="@font/bungee"
+                android:includeFontPadding="false"
+                android:text="Xem DSND" />
         </LinearLayout>
 
     </LinearLayout>

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.androidapp1.SQLite.DBHelper;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
@@ -28,7 +30,9 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
-        callSignUp = findViewById(R.id.signUp_btn);
+//        DBHelper dbHelper = new DBHelper(this);
+//        SQLiteDatabase db = dbHelper.getReadableDatabase();
+//        db.close();
 
         img = findViewById(R.id.logoImage);
         logoText = findViewById(R.id.logoName);
@@ -37,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password_edt);
 
         login_btn = findViewById(R.id.login_btn);
+        callSignUp = findViewById(R.id.signUp_btn);
 
         callSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
