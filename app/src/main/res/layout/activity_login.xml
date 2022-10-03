@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chào mừng bạn trở lại!"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:fontFamily="@font/bungee"
         android:transitionName="logo_Name_Tran"></TextView>
     <TextView
@@ -36,39 +36,51 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="20dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/username_edt"
             android:hint="Số điện thoại"
             android:paddingBottom="5dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:transitionName="username_Tran">
+            android:transitionName="username_Tran"
+            app:counterEnabled="true"
+            app:counterMaxLength="10">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_phone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/password_edt"
             android:hint="Mật khẩu"
             app:passwordToggleEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:transitionName="password_Tran">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nhớ mật khẩu"
+            android:fontFamily="@font/roboto"
+            android:id="@+id/cb_savePassword"
+            android:onClick="saveUP"></CheckBox>
 
         <Button
             android:layout_width="200dp"
@@ -88,7 +100,8 @@
             android:background="#000"
             android:textColor="#fff"
             android:layout_marginVertical="5dp"
-            android:transitionName="btn_LogIn_Tran"></Button>
+            android:transitionName="btn_LogIn_Tran"
+            android:onClick="checkLogin"></Button>
 
         <Button
             android:id="@+id/signUp_btn"

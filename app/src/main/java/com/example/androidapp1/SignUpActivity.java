@@ -11,12 +11,13 @@ import android.widget.Toast;
 
 import com.example.androidapp1.SQLite.UserDao;
 import com.example.androidapp1.model.User;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class SignUpActivity extends AppCompatActivity {
 
     Button backSignIn, btn_register;
-    private TextInputLayout reg_name, reg_phone, reg_email, reg_password, reg_cfpassword;
+    private TextInputEditText reg_name, reg_phone, reg_email, reg_password, reg_cfpassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,30 +35,58 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-        //Nhấn đăng ki tài khoản
-        btn_register = findViewById(R   .id.btn_register);
 
         reg_name = findViewById(R.id.name);
         reg_phone = findViewById(R.id.phone);
         reg_email = findViewById(R.id.email);
         reg_password = findViewById(R.id.password);
         reg_cfpassword = findViewById(R.id.confirm_password);
-
+        //Nhấn đăng ki tài khoản
+        btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserDao dao = new UserDao(SignUpActivity.this);
-                User user = new User();
+                String name = reg_name.getText().toString();
+                String phone = reg_phone.getText().toString();
+                String email = reg_email.getText().toString();
+                String password = reg_password.getText().toString();
+                String cfpassword = reg_cfpassword.getText().toString();
 
-                user.setName(reg_name.getEditText().toString());
-                user.setPhone(reg_phone.getEditText().toString());
-                user.setEmail(reg_email.getEditText().toString());
-                user.setPassword(reg_password.getEditText().toString());
+                if(name.isEmpty() || phone.isEmpty() || email.isEmpty() || password.isEmpty() || cfpassword.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Vui lòng không để trống",
+                            Toast.LENGTH_SHORT).show();
+                }else{
+                    if (password.equals(cfpassword)){
+                        UserDao dao = new UserDao(SignUpActivity.this);
+                        User user = new User();
 
-                dao.insert(user);
+                        Boolean checkPhone = dao.checkPhone(phone);
+                        if (checkPhone == false){
+                            user.setName(name);
+                            user.setPhone(phone);
+                            user.setEmail(email);
+                            user.setPassword(password);
 
-                Toast.makeText(SignUpActivity.this, "Đăng kí thành công",
-                        Toast.LENGTH_SHORT).show();
+                            dao.insert(user);
+
+                            Toast.makeText(SignUpActivity.this, "Đăng kí thành công với SĐT " + user.getPhone(),
+                                    Toast.LENGTH_LONG).show();
+
+                            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                            intent.putExtra("phone", reg_phone.getText().toString());
+                            intent.putExtra("password", reg_password.getText().toString());
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(SignUpActivity.this, "SĐT đã tồn tai! Vui lòng đăng nhập!",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }else {
+                        Toast.makeText(SignUpActivity.this, "Vui lòng xác nhận đúng mật khẩu!",
+                                Toast.LENGTH_LONG).show();
+                    }
+                }
+
+
             }
         });
 

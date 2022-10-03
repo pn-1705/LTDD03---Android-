@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    public static final String DB_name = "AndroidApp";
+    public static final String DB_name = "AndroidApp1";
     public static final int DB_version = 1;
 
     public DBHelper(Context context) {
@@ -15,16 +15,17 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = "create table NHANVIEN("
+        String sql = "create table USERS("
                 + "phone text primary key, "
+                + "name text not null, "
                 + "email text not null, "
-                + "name text not null)";
+                + "password text not null)";
         sqLiteDatabase.execSQL(sql);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        String sql = "drop table if exists NHANVIEN";
+        String sql = "drop table if exists USERS";
         sqLiteDatabase.execSQL(sql);
         onCreate(sqLiteDatabase);
     }

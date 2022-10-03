@@ -1,4 +1,4 @@
-package com.example.androidapp1;
+package com.example.androidapp1.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.androidapp1.R;
 import com.example.androidapp1.model.User;
 
 import java.util.List;
@@ -37,15 +38,16 @@ public class UserAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if(view == null){
+        if (view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.layout_user_item, null);
-            TextView tvName = view.findViewById(R.id.name);
-            TextView tvPhone = view.findViewById(R.id.phone);
-
-            User user = new User();
-            tvName.setText(user.getName());
-            tvPhone.setText(user.getPhone());
         }
-        return null;
+        TextView tvName = view.findViewById(R.id.name);
+        TextView tvPhone = view.findViewById(R.id.phone);
+
+        User user = list.get(i);
+        tvName.setText(user.getName());
+        tvPhone.setText(user.getPhone());
+
+        return view;
     }
 }

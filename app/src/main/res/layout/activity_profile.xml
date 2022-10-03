@@ -21,10 +21,10 @@
                 android:id="@+id/back_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quay lại"
-                android:textColor="#000"
                 android:background="#00000000"
-                android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24"></Button>
+                android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24"
+                android:text="Quay lại"
+                android:textColor="#000"></Button>
 
             <ImageView
                 android:id="@+id/profile_img"
@@ -163,6 +163,7 @@
                 android:hint="Họ và tên">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/person_icon"
@@ -179,6 +180,7 @@
                 android:hint="Email">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/mail_icon"
@@ -196,6 +198,7 @@
                 android:hint="Số điện thoại">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/phone_icon"
@@ -213,6 +216,7 @@
                 android:hint="Mật khẩu">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/password_icon"

@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 import com.example.androidapp1.SQLite.UserDao;
+import com.example.androidapp1.adapter.UserAdapter;
 import com.example.androidapp1.model.User;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class LvUsersActivity extends AppCompatActivity {
 
     private UserAdapter userAdapter;
     private ListView lvUsers;
@@ -17,10 +18,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_lvusers);
 
-        lvUsers = findViewById(R.id.lvUsers);
-
+        lvUsers = findViewById(R.id.lv_Users);
         UserDao dao = new UserDao(this);
         List<User> list = dao.getAll();
 

@@ -5,10 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".LvUsersActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User"
+        tools:textSize="20sp" />
 
     <ListView
-        android:id="@+id/lvUsers"
+        android:id="@+id/lv_Users"
         android:layout_width="409dp"
         android:layout_height="794dp"
         tools:layout_editor_absoluteX="1dp"
