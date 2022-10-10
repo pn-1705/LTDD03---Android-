@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".activity.ProfileActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -88,10 +88,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:fontFamily="@font/bungee"
                         android:includeFontPadding="false"
                         android:text="10.254"
                         android:textSize="20sp"
-                        android:fontFamily="@font/bungee"
                         android:textStyle="bold"></TextView>
 
                     <TextView
@@ -130,9 +130,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:fontFamily="@font/bungee"
                         android:includeFontPadding="false"
                         android:text="1.025"
-                        android:fontFamily="@font/bungee"
                         android:textSize="20sp"
                         android:textStyle="bold"></TextView>
 
@@ -153,13 +153,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="20dp">
+
+            <Button
+                android:id="@+id/btn_editprofile"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:fontFamily="@font/bungee"
+                android:text="Chỉnh sửa thông tin cá nhân"
+                android:drawableLeft="@drawable/ic_baseline_edit_24"
+                android:textColor="#000"
+                android:onClick="edit_information"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:hint="Họ và tên">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -173,10 +186,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:hint="Email">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -190,10 +203,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
                 android:hint="Số điện thoại">
 
@@ -208,12 +221,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:passwordToggleEnabled="true"
-                android:hint="Mật khẩu">
+                android:hint="Mật khẩu"
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_password"
@@ -227,21 +240,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_padding"
                 android:fontFamily="@font/bungee"
-                android:includeFontPadding="false"
-                android:text="Cập nhật" />
-
-            <Button
-                android:id="@+id/view_ListViewUser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_padding"
-                android:fontFamily="@font/bungee"
-                android:includeFontPadding="false"
-                android:text="Xem DSND" />
+                android:text="Đăng xuất" />
         </LinearLayout>
 
     </LinearLayout>

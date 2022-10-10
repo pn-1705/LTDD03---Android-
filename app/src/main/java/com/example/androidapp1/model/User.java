@@ -1,6 +1,8 @@
 package com.example.androidapp1.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String name, email, phone, password;
 
     public User() {

@@ -1,4 +1,4 @@
-package com.example.androidapp1;
+package com.example.androidapp1.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.androidapp1.R;
 import com.example.androidapp1.SQLite.DBHelper;
 import com.example.androidapp1.SQLite.UserDao;
 import com.example.androidapp1.model.User;
@@ -95,13 +95,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void checkLogin(View view) {
-        if (edt_phone.getText().toString().isEmpty() || edt_password.getText().toString().isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Không được để trống!",
+        String phone = edt_phone.getText().toString();
+        String password = edt_password.getText().toString();
+        if (phone.isEmpty() || password.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Vui lòng không để trống!",
                     Toast.LENGTH_LONG).show();
         } else {
             UserDao dao = new UserDao(this);
-            String phone = edt_phone.getText().toString();
-            String password = edt_password.getText().toString();
             Boolean ckUP = dao.checkPhonePassword(phone, password);
             if (ckUP == true) {
                 Toast.makeText(getApplicationContext(), "Đăng nhập thành công",
@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 user = dao.getByPhone(phone);
 
-                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                 intent.putExtra("phone", user.getPhone());
                 startActivity(intent);
             } else {

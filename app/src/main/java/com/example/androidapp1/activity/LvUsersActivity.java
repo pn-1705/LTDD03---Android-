@@ -1,9 +1,11 @@
-package com.example.androidapp1;
+package com.example.androidapp1.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.ListView;
+
+import com.example.androidapp1.R;
 import com.example.androidapp1.SQLite.UserDao;
 import com.example.androidapp1.adapter.UserAdapter;
 import com.example.androidapp1.model.User;

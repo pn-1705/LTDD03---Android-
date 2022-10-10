@@ -4,22 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
     android:orientation="vertical"
-    tools:context=".activity.LvUsersActivity">
+    tools:context=".activity.HomeActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/btn_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Danh sách người dùng"
-        tools:textSize="20sp"
-        android:gravity="center"
-        android:layout_margin="5dp"
-        android:fontFamily="@font/bungee"/>
+        android:onClick="profile"
+        android:text="profile">
 
-    <ListView
-        android:id="@+id/lv_Users"
+    </Button>
+
+    <Button
+        android:id="@+id/btn_userlv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"/>
+        android:onClick="userListView"
+        android:text="User ListView"></Button>
+
 </LinearLayout>

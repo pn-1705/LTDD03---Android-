@@ -1,4 +1,4 @@
-package com.example.androidapp1;
+package com.example.androidapp1.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +9,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.androidapp1.R;
 import com.example.androidapp1.SQLite.UserDao;
 import com.example.androidapp1.model.User;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -69,7 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                             dao.insert(user);
 
-                            Toast.makeText(SignUpActivity.this, "Đăng kí thành công với SĐT " + user.getPhone(),
+                            Toast.makeText( SignUpActivity.this, "Đăng kí thành công với SĐT " + user.getPhone(),
                                     Toast.LENGTH_LONG).show();
 
                             Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
@@ -77,8 +77,11 @@ public class SignUpActivity extends AppCompatActivity {
                             intent.putExtra("password", reg_password.getText().toString());
                             startActivity(intent);
                         }else{
-                            Toast.makeText(SignUpActivity.this, "SĐT đã tồn tai! Vui lòng đăng nhập!",
+                            Toast.makeText(SignUpActivity.this, "SĐT đã được đăng kí! Vui lòng đăng nhập!",
                                     Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                            intent.putExtra("phone", reg_phone.getText().toString());
+                            startActivity(intent);
                         }
                     }else {
                         Toast.makeText(SignUpActivity.this, "Vui lòng xác nhận đúng mật khẩu!",
@@ -90,14 +93,5 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-
-
-//        public void registerUser(View view){
-//            String name = reg_name.getEditText().getText().toString();
-//            String phone = reg_name.getEditText().getText().toString();
-//            String password = reg_name.getEditText().getText().toString();
-//            String cfpassword = reg_name.getEditText().getText().toString();
-//            UserHelpClass helpClass = new UserHelpClas
-//        }
     }
 }
