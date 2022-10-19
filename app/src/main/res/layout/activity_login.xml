@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LoginActivity"
-    android:orientation="vertical"
     android:background="#fff"
-    android:padding="20dp">
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:id="@+id/login_layout"
+    tools:context=".activity.LoginActivity">
+
     <ImageView
         android:id="@+id/logoImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/logo_app"
         android:layout_gravity="right"
+        android:src="@drawable/logo_app"
         android:transitionName="logo_img"></ImageView>
+
     <TextView
         android:id="@+id/logoName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/bungee"
         android:text="Chào mừng bạn trở lại!"
         android:textSize="30sp"
-        android:fontFamily="@font/bungee"
         android:transitionName="logo_Name_Tran"></TextView>
+
     <TextView
         android:id="@+id/logoSlogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Đăng nhập để tiếp tục"
         android:fontFamily="@font/roboto"
+        android:text="Đăng nhập để tiếp tục"
         android:textSize="18sp"
         android:transitionName="logo_Slg_Tran"></TextView>
 
@@ -41,11 +45,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_phone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Số điện thoại"
             android:paddingBottom="5dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:transitionName="username_Tran"
             app:counterEnabled="true"
             app:counterMaxLength="10">
@@ -54,68 +58,68 @@
                 android:id="@+id/edt_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mật khẩu"
-            app:passwordToggleEnabled="true"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:transitionName="password_Tran">
+            android:transitionName="password_Tran"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <CheckBox
+            android:id="@+id/cb_savePassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nhớ mật khẩu"
             android:fontFamily="@font/roboto"
-            android:id="@+id/cb_savePassword"
-            android:onClick="saveUP"></CheckBox>
+            android:onClick="saveUP"
+            android:text="Nhớ mật khẩu"></CheckBox>
 
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:background="#00000000"
-            android:text="Quên mật khẩu ?"
             android:layout_gravity="right"
+            android:layout_margin="5dp"
+            android:background="#00000000"
             android:elevation="0dp"
-            android:textColor="#000"
-            android:layout_margin="5dp"></Button>
+            android:text="Quên mật khẩu ?"
+            android:textColor="#000"></Button>
 
         <Button
             android:id="@+id/login_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Đăng nhập"
-            android:background="#000"
-            android:textColor="#fff"
             android:layout_marginVertical="5dp"
-            android:transitionName="btn_LogIn_Tran"
-            android:onClick="checkLogin"></Button>
+            android:background="#000"
+            android:onClick="checkLogin"
+            android:text="Đăng nhập"
+            android:textColor="#fff"
+            android:transitionName="btn_LogIn_Tran"></Button>
 
         <Button
             android:id="@+id/signUp_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#00000000"
-            android:textColor="#000"
-            android:text="Tạo tài khoản"
             android:layout_gravity="right"
-            android:elevation="0dp"
             android:layout_margin="5dp"
+            android:background="#00000000"
+            android:elevation="0dp"
             android:fontFamily="@font/roboto"
+            android:text="Tạo tài khoản"
+            android:textColor="#000"
             android:transitionName="btn_callSignUp_Tran"></Button>
-
 
     </LinearLayout>
 </LinearLayout>

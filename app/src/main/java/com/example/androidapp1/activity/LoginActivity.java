@@ -1,8 +1,10 @@
 package com.example.androidapp1.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ActivityOptions;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 import com.example.androidapp1.R;
 import com.example.androidapp1.SQLite.DBHelper;
 import com.example.androidapp1.SQLite.UserDao;
+import com.example.androidapp1.activity.main.ProfileFragment;
 import com.example.androidapp1.model.User;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -33,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox checkBox_rememberUP;
     User user;
 
+    SharedPreferences saveLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +48,14 @@ public class LoginActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         db.close();
 
+        saveLogin = getSharedPreferences("dataLogin", MODE_PRIVATE);
+
         edt_phone = findViewById(R.id.edt_phone);
         edt_password = findViewById(R.id.edt_password);
+
+        edt_phone.setText(saveLogin.getString("PHONE", ""));
+        edt_password.setText(saveLogin.getString("PASSWORD", ""));
+
         checkBox_rememberUP = findViewById(R.id.cb_savePassword);
 
         edt_phone.setText(getIntent().getStringExtra("phone"));
@@ -82,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void rememberUP(String phone, String pass, boolean status) {
-        SharedPreferences sharedPreferences = getSharedPreferences("USER_FILE", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if (status == false) {
             editor.clear();
@@ -108,9 +119,8 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
 
                 user = dao.getByPhone(phone);
-
-                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                intent.putExtra("phone", user.getPhone());
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                intent.putExtra("phone", phone);
                 startActivity(intent);
             } else {
                 Toast.makeText(getApplicationContext(), "Tài khoản hoặc mật khẩu không đúng!",

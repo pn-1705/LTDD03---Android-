@@ -4,17 +4,17 @@
     <item
         android:id="@+id/action_home"
         android:icon="@drawable/ic_house_solid"
-        android:title=""
-        app:showAsAction="always"></item>
+        android:title="Home"></item>
     <item
         android:id="@+id/friends"
         android:icon="@drawable/ic_user_group_solid"
-        android:title=""
-        app:showAsAction="always"></item>
+        android:title="Bạn bè"></item>
+    <item
+        android:id="@+id/alerts"
+        android:icon="@drawable/ic_bell_solid"
+        android:title="Thông báo"></item>
     <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_user_solid"
-        android:title=""
-        app:showAsAction="always"></item>
-
+        android:title="Tôi"></item>
 </menu>

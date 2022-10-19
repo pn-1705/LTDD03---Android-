@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ProfileActivity">
+    tools:context=".activity.main.ProfileFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,23 +13,14 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             android:background="#fece2f"
             android:padding="20dp">
 
-            <Button
-                android:id="@+id/back_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#00000000"
-                android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24"
-                android:text="Quay lại"
-                android:textColor="#000"></Button>
-
             <ImageView
                 android:id="@+id/profile_img"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/avt_circle"></ImageView>
 
@@ -89,7 +80,6 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/bungee"
-                        android:includeFontPadding="false"
                         android:text="10.254"
                         android:textSize="20sp"
                         android:textStyle="bold"></TextView>
@@ -131,7 +121,6 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/bungee"
-                        android:includeFontPadding="false"
                         android:text="1.025"
                         android:textSize="20sp"
                         android:textStyle="bold"></TextView>
@@ -150,6 +139,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/inf_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -158,15 +148,15 @@
 
             <Button
                 android:id="@+id/btn_editprofile"
-                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:background="#00000000"
-                android:fontFamily="@font/bungee"
-                android:text="Chỉnh sửa thông tin cá nhân"
                 android:drawableLeft="@drawable/ic_baseline_edit_24"
-                android:textColor="#000"
-                android:onClick="edit_information"/>
+                android:fontFamily="@font/bungee"
+                android:onClick="edit_information"
+                android:text="Chỉnh sửa thông tin cá nhân"
+                android:textColor="#000" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -225,8 +215,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="Mật khẩu"
-                app:passwordToggleEnabled="true">
+                android:hint="Mật khẩu">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_password"
@@ -240,14 +229,19 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/logout"
+                android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_padding"
                 android:fontFamily="@font/bungee"
+                android:textColor="@color/black"
                 android:text="Đăng xuất" />
         </LinearLayout>
 
+        <FrameLayout
+            android:id="@+id/frame_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></FrameLayout>
     </LinearLayout>
 
 </ScrollView>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.StoreActivity">
+
+    <LinearLayout
+        android:id="@+id/title_store"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/p2"></ImageView>
+
+        <TextView
+            android:id="@+id/name_store"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/bungee"
+            android:includeFontPadding="false"
+            android:maxLines="2"
+            android:padding="10dp"
+            android:text="Bún đậu mắm tôm - Đặc sản Quảng Trị"
+            android:textSize="20dp"></TextView>
+
+        <TextView
+            android:id="@+id/address_store"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_baseline_location_on_24"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/roboto"
+            android:letterSpacing="-0.05"
+            android:maxLines="2"
+            android:padding="5dp"
+            android:text="285/22 Trần Cao Vân, Hải Châu, Đà Nẵng"
+            android:textSize="18dp"
+            android:textStyle="bold"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="5dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                app:menu="@menu/nav_store"
+                tools:ignore="ObsoleteLayoutParam"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
+            <ListView
+                android:id="@+id/lv_menu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

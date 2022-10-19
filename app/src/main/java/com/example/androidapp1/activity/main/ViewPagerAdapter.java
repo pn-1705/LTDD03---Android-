@@ -1,13 +1,9 @@
-package com.example.androidapp1.adapter;
+package com.example.androidapp1.activity.main;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-
-import com.example.androidapp1.activity.main.FriendsFragment;
-import com.example.androidapp1.activity.main.HomeFragment;
-import com.example.androidapp1.activity.main.ProfileFragment;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -24,6 +20,8 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 1:
                 return new FriendsFragment();
             case 2:
+                return new AlertFragment();
+            case 3:
                 return new ProfileFragment();
             default:
                 return new HomeFragment();
@@ -32,6 +30,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 }

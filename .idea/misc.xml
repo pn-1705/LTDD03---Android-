@@ -19,11 +19,20 @@
         <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/activity_home.xml" value="0.176" />
         <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/activity_login.xml" value="0.15789473684210525" />
         <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/activity_lvusers.xml" value="0.15789473684210525" />
-        <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/activity_main.xml" value="0.15789473684210525" />
+        <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/activity_main.xml" value="0.152" />
         <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/activity_profile.xml" value="0.15789473684210525" />
         <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/activity_sign_up.xml" value="0.15789473684210525" />
+        <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/activity_store.xml" value="0.2" />
         <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/activity_user_detail.xml" value="0.15789473684210525" />
+        <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/fragment_alert.xml" value="0.15789473684210525" />
+        <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/fragment_demo.xml" value="0.15789473684210525" />
+        <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/item_card.xml" value="0.15789473684210525" />
+        <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/item_card_store.xml" value="0.536" />
+        <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/item_img_slider.xml" value="0.14901315789473685" />
         <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/layout/layout_user_item.xml" value="0.15789473684210525" />
+        <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/menu/nav_store.xml" value="0.15723684210526315" />
         <entry key="..\:/Users/Lenovo/Desktop/LTDD03---Android-/app/src/main/res/menu/toolbar_menu.xml" value="0.15789473684210525" />
       </map>
     </option>
