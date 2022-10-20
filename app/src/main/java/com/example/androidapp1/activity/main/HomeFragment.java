@@ -89,9 +89,16 @@ public class HomeFragment extends Fragment {
         List<Store> list = new ArrayList<>();
 
         list.add(new Store("123", "Cơm gà quay 99", R.drawable.p1, "30 Lê Độ, Thanh Khê, Đà Nẵng"));
+        list.add(new Store("123", "Cơm gà quay 99", R.drawable.p1, "30 Lê Độ, Thanh Khê, Đà Nẵng"));
+        list.add(new Store("123", "Cơm gà quay 99", R.drawable.p1, "30 Lê Độ, Thanh Khê, Đà Nẵng"));
         list.add(new Store("123", "Quán A - Bún đậu mắm tôm", R.drawable.p2, "Viet Nam"));
         list.add(new Store("123", "Trà sữa nhà làm - Trần Cao Vân", R.drawable.p4, "Viet Nam"));
+        list.add(new Store("123", "Trà sữa nhà làm - Trần Cao Vân", R.drawable.p4, "Viet Nam"));
+        list.add(new Store("123", "Trà sữa nhà làm - Trần Cao Vân", R.drawable.p4, "Viet Nam"));
         list.add(new Store("123", "Cơm chiên giòn 404", R.drawable.avt, "Viet Nam"));
+        list.add(new Store("123", "Quán nhậu Mỹ Liên", R.drawable.p5, "Viet Nam"));
+        list.add(new Store("123", "Quán nhậu Mỹ Liên", R.drawable.p5, "Viet Nam"));
+        list.add(new Store("123", "Quán nhậu Mỹ Liên", R.drawable.p5, "Viet Nam"));
         list.add(new Store("123", "Quán nhậu Mỹ Liên", R.drawable.p5, "Viet Nam"));
 
         return list;

@@ -55,7 +55,7 @@ public class StoreActivity extends AppCompatActivity {
         ViewGroup.LayoutParams params = ll_title_store.getLayoutParams();
 
         menu = new ArrayList<>();
-        for (i = 0; i < 15; i++) {
+        for (i = 0; i < 20; i++) {
             menu.add("Món " + i);
         }
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, menu);

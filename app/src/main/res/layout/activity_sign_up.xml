@@ -63,14 +63,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Số điện thoại"
-            app:counterEnabled="true"
-            app:counterMaxLength="10">
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number">
+                android:layout_height="wrap_content">
 
             </com.google.android.material.textfield.TextInputEditText>
 

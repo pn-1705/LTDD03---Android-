@@ -74,20 +74,20 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+//
+//                Pair[] pairs = new Pair[7];
+//
+//                pairs[0] = new Pair<View, String>(img, "logo_img");
+//                pairs[1] = new Pair<View, String>(logoText, "logo_Name_Tran");
+//                pairs[2] = new Pair<View, String>(slgText, "logo_Slg_Tran");
+//                pairs[3] = new Pair<View, String>(til_phone, "username_Tran");
+//                pairs[4] = new Pair<View, String>(til_password, "password_Tran");
+//                pairs[5] = new Pair<View, String>(login_btn, "btn_LogIn_Tran");
+//                pairs[6] = new Pair<View, String>(callSignUp, "btn_callSignUp_Tran");
+//
+//                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this, pairs);
 
-                Pair[] pairs = new Pair[7];
-
-                pairs[0] = new Pair<View, String>(img, "logo_img");
-                pairs[1] = new Pair<View, String>(logoText, "logo_Name_Tran");
-                pairs[2] = new Pair<View, String>(slgText, "logo_Slg_Tran");
-                pairs[3] = new Pair<View, String>(til_phone, "username_Tran");
-                pairs[4] = new Pair<View, String>(til_password, "password_Tran");
-                pairs[5] = new Pair<View, String>(login_btn, "btn_LogIn_Tran");
-                pairs[6] = new Pair<View, String>(callSignUp, "btn_callSignUp_Tran");
-
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this, pairs);
-
-                startActivity(intent, options.toBundle());
+                startActivity(intent/*, options.toBundle()*/);
             }
         });
     }
