@@ -37,7 +37,6 @@ public class ProfileFragment extends Fragment {
 
         MainActivity activity = (MainActivity) getActivity();
         phone = activity.getMyData();
-        Toast.makeText(getActivity(), phone, Toast.LENGTH_SHORT).show();
         createProfileFragment();
 
         return mView;

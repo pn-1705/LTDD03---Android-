@@ -25,14 +25,17 @@ import com.example.androidapp1.activity.main.ProfileFragment;
 import com.example.androidapp1.model.User;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.hbb20.CountryCodePicker;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button callSignUp, login_btn;
+    Button callSignUp, login_btn, btn_ForgetPassword;
     ImageView img;
     TextView logoText, slgText;
     TextInputLayout til_phone, til_password;
     TextInputEditText edt_phone, edt_password;
+    CountryCodePicker ccp;
+    SharedPreferences sharedPreferences;
     CheckBox checkBox_rememberUP;
     User user;
 
@@ -48,18 +51,23 @@ public class LoginActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         db.close();
 
-        saveLogin = getSharedPreferences("dataLogin", MODE_PRIVATE);
-
+        ccp = findViewById(R.id.ccp);
         edt_phone = findViewById(R.id.edt_phone);
         edt_password = findViewById(R.id.edt_password);
 
-        edt_phone.setText(saveLogin.getString("PHONE", ""));
-        edt_password.setText(saveLogin.getString("PASSWORD", ""));
-
         checkBox_rememberUP = findViewById(R.id.cb_savePassword);
 
+        ccp.setCountryForPhoneCode(84);
         edt_phone.setText(getIntent().getStringExtra("phone"));
         edt_password.setText(getIntent().getStringExtra("password"));
+
+        //Hiển thị tài khoản đã lưu
+        sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("REMEMBER", false) == true) {
+            ccp.setCountryForPhoneCode(+84);
+            edt_phone.setText(sharedPreferences.getString("PHONE", ""));
+            edt_password.setText(sharedPreferences.getString("PASSWORD", ""));
+        }
 
         img = findViewById(R.id.logoImage);
         logoText = findViewById(R.id.logoName);
@@ -70,6 +78,16 @@ public class LoginActivity extends AppCompatActivity {
         login_btn = findViewById(R.id.login_btn);
         callSignUp = findViewById(R.id.signUp_btn);
 
+        btn_ForgetPassword = findViewById(R.id.btn_ForgetPassword);
+        btn_ForgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callForgetPassword(view);
+            }
+        });
+
+
+        //Đăng nhập
         callSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,6 +124,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void checkLogin(View view) {
+        //Mã quốc gia
+        String code_ccp = ccp.getSelectedCountryCodeWithPlus();
         String phone = edt_phone.getText().toString();
         String password = edt_password.getText().toString();
         if (phone.isEmpty() || password.isEmpty()) {
@@ -118,7 +138,28 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Đăng nhập thành công",
                         Toast.LENGTH_SHORT).show();
 
-                user = dao.getByPhone(phone);
+                if (checkBox_rememberUP.isChecked()) {
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putString("cpp", code_ccp);
+                    editor.putString("PHONE", phone);
+                    editor.putString("PASSWORD", password);
+                    editor.putBoolean("REMEMBER", true);
+
+                    editor.commit();
+
+                } else {
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putString("cpp", code_ccp);
+                    editor.putString("PHONE", phone);
+                    editor.putString("PASSWORD", password);
+                    editor.putBoolean("REMEMBER", false);
+
+                    editor.commit();
+
+                }
+
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 intent.putExtra("phone", phone);
                 startActivity(intent);
@@ -133,6 +174,11 @@ public class LoginActivity extends AppCompatActivity {
         String phone = edt_phone.getText().toString();
         String pass = edt_password.getText().toString();
         boolean status = checkBox_rememberUP.isChecked();
-        rememberUP(phone, pass, status);
+        // rememberUP(phone, pass, status);
+    }
+
+    public void callForgetPassword(View view) {
+        Intent intent = new Intent(getApplicationContext(), ForgetPasswordActivity.class);
+        startActivity(intent);
     }
 }

@@ -87,13 +87,10 @@ public class MainActivity extends AppCompatActivity {
                     case 3:
                         bottomNavigationView.getMenu().findItem(R.id.profile).setChecked(true);
                         break;
-
                 }
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
         setUpViewPager();

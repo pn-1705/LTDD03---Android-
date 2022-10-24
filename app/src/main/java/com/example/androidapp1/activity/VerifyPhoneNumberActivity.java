@@ -201,7 +201,15 @@ public class VerifyPhoneNumberActivity extends AppCompatActivity {
                             FirebaseUser user = task.getResult().getUser();
                             // Update UI
 
-                            goToSignInActivity(user.getPhoneNumber());
+                            Integer dh = getIntent().getIntExtra("dh", 0);
+
+                            if (dh == 1){
+                                goToSignInActivity(user.getPhoneNumber());
+                            }else {
+                                goToChangePasswodActivity(user.getPhoneNumber());
+                            }
+
+
                         } else {
                             // Sign in failed, display a message and update the UI
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -215,7 +223,16 @@ public class VerifyPhoneNumberActivity extends AppCompatActivity {
     }
 
     private void goToSignInActivity(String phoneNumber) {
+        Toast.makeText(VerifyPhoneNumberActivity.this, "Đăng kí thành công !", Toast.LENGTH_LONG).show();
+        SignUpActivity.dao.insert(SignUpActivity.user1);
         Intent intent = new Intent(VerifyPhoneNumberActivity.this, LoginActivity.class);
+        intent.putExtra("phone", phoneNumber);
+        startActivity(intent);
+    }
+
+    private void goToChangePasswodActivity(String phoneNumber) {
+        Toast.makeText(VerifyPhoneNumberActivity.this, "Nhập mật khẩu mới để tiếp tục", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(VerifyPhoneNumberActivity.this, ChangePasswordActivity.class);
         intent.putExtra("phone", phoneNumber);
         startActivity(intent);
     }

@@ -26,6 +26,7 @@ public class UserDao {
 
         while (cursor.moveToNext()) {
             User u = new User();
+            u.setPhone(cursor.getString(cursor.getColumnIndex("ccp")));
             u.setPhone(cursor.getString(cursor.getColumnIndex("phone")));
             u.setName(cursor.getString(cursor.getColumnIndex("name")));
             u.setEmail(cursor.getString(cursor.getColumnIndex("email")));
@@ -54,6 +55,7 @@ public class UserDao {
         ContentValues values = new ContentValues();
         values.put("name", user.getName());
         values.put("email", user.getEmail());
+        values.put("ccp", user.getPhone());
         values.put("phone", user.getPhone());
         values.put("password", user.getPassword());
 
@@ -66,7 +68,7 @@ public class UserDao {
         values.put("email", user.getEmail());
         values.put("password", user.getPassword());
 
-        return db.update("USERS", values, "id =?", new String[]{user.getPhone()});
+        return db.update("USERS", values, "phone =?", new String[]{user.getPhone()});
     }
 
     public boolean checkPhone(String phone) {

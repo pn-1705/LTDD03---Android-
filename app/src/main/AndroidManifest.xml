@@ -14,6 +14,12 @@
         android:theme="@style/Theme.AndroidApp1"
         tools:targetApi="31">
         <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.VerifyPhoneNumberActivity"
             android:exported="false" />
         <activity

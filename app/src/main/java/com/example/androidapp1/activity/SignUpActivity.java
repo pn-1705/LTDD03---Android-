@@ -25,23 +25,31 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.hbb20.CountryCodePicker;
 
 import java.util.concurrent.TimeUnit;
 
 public class SignUpActivity extends AppCompatActivity {
 
     Button backSignIn, btn_register;
+    CountryCodePicker ccp;
+
     private TextInputEditText reg_name, reg_phone, reg_email, reg_password, reg_cfpassword;
 
     private FirebaseAuth mAuth;
 
     private static final String TAG = SignUpActivity.class.getName();
 
+    public static UserDao dao ;
+    public static User user1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sign_up);
+        user1 = new User();
+        dao = new UserDao(SignUpActivity.this);
 
         //Khởi tạo
         mAuth = FirebaseAuth.getInstance();
@@ -56,8 +64,8 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-
         reg_name = findViewById(R.id.name);
+        ccp = findViewById(R.id.ccp);
         reg_phone = findViewById(R.id.phone);
         reg_email = findViewById(R.id.email);
         reg_password = findViewById(R.id.password);
@@ -68,6 +76,8 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = reg_name.getText().toString();
+                String code_ccp = ccp.getSelectedCountryCodeWithPlus();
+
                 String phone = reg_phone.getText().toString();
                 String email = reg_email.getText().toString();
                 String password = reg_password.getText().toString();
@@ -78,26 +88,27 @@ public class SignUpActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 } else {
                     if (password.equals(cfpassword)) {
-                        UserDao dao = new UserDao(SignUpActivity.this);
-                        User user = new User();
 
                         Boolean checkPhone = dao.checkPhone(phone);
                         if (checkPhone == false) {
 
-                            user.setName(name);
-                            user.setPhone(phone);
-                            user.setEmail(email);
-                            user.setPassword(password);
+                            user1.setName(name);
+                            user1.setPhone(code_ccp);
+                            user1.setPhone(phone);
+                            user1.setEmail(email);
+                            user1.setPassword(password);
 
-                            dao.insert(user);
-
+//                            dao.insert(user1);
+//
 //                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+//                            intent.putExtra("ccp", code_ccp);
 //                            intent.putExtra("phone", phone);
+//                            intent.putExtra("password", password);
 //                            startActivity(intent);
 
                             PhoneAuthOptions options =
                                     PhoneAuthOptions.newBuilder(mAuth)
-                                            .setPhoneNumber(phone)       // Phone number to verify
+                                            .setPhoneNumber(code_ccp + phone)       // Phone number to verify
                                             .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
                                             .setActivity(SignUpActivity.this)                 // Activity (for callback binding)
                                             .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -134,7 +145,6 @@ public class SignUpActivity extends AppCompatActivity {
                 //Xác thực số điện thoại
             }
         });
-
     }
 
 
@@ -172,6 +182,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void goToVertifuOTP(String phone, String verificationID) {
         Intent intent = new Intent(getApplicationContext(), VerifyPhoneNumberActivity.class);
         intent.putExtra("phone", phone);
+        intent.putExtra("dh", 1);
         intent.putExtra("mVerificationID", verificationID);
         startActivity(intent);
     }
